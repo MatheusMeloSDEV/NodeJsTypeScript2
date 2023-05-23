@@ -1,0 +1,19 @@
+<div class="">
+    
+    <input type="text" #campoNome>
+    <input type="text" #campoSenha>
+    <button (click)="CREATE_user(campoNome.value, campoSenha.value)">Cadastrar</button>
+    <button (click)="editar()">Editar</button>
+    <ul>
+        <li *ngFor="let user of users">
+            <p>Nome: {{user.nome}}</p>
+            
+            <button (click)="DELETE_user(user._id)">Excluir</button>
+            <div *ngIf="emEdicao">
+                <input type="text" #editarNome value="{{user.nome}}">
+                <input type="text" #editarSenha value="{{user.senha}}">
+                <button (click)="UPDATE_user(user._id, editarNome.value, editarSenha.value)">Salvar</button>
+            </div>
+        </li>
+    </ul>
+</div>
